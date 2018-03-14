@@ -1,0 +1,58 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'home/globalstylesheet.css' %}"/>
+
+        <div class="titleContainer">
+            <p style="text-align:center;"><img src="{% static 'Catnip/Cookies-list-title.png' %}" alt="header image"></p>
+        </div>
+   
+        <div class="catnipContent">
+            <form class="form-inline" action="/catnip/" method="get">
+            <input id="al-search" type="text" name="q" value="{{ request.GET.q }}" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Name"/>
+            <input type="submit" value="Search" class="btn btn-primary"/>
+            </form>
+            <div class="catnipLeaderboardTable">
+                <table class= "table table-bordered table-inverse">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Catnip</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        {% for x in all_Catnip %}
+                        <tr>
+                            <th>{{ forloop.counter0|add:all_Catnip.start_index }}</th>
+                            <td>{{ x.name }}</td>
+                            <td>{{ x.amount }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if all_Catnip.has_previous %}
+                        <a href="?page={{ all_Catnip.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ all_Catnip.number }} of {{ all_Catnip.paginator.num_pages }}.
+                    </span>
+
+                    {% if all_Catnip.has_next %}
+                        <a href="?page={{ all_Catnip.next_page_number }}">Next</a>
+                    {% endif %}
+                </span>
+            </div>
+            <div class="footer">
+                <p class="signoff">Front-End Development: Waypalm<br>Back-End Development: DukeKero</p>
+            </div>
+        </div>
+
+{% endblock %}

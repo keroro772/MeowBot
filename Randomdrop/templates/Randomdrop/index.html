@@ -1,0 +1,22 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'drops/stylesheet.css' %}"/>
+    <div id="allContent">
+            <div class="col-sm-4 col-sm-offset-5">
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading cam-heading">
+                        <h4>Rocket League Drops</h4>
+                    </div>
+                        <div class="panel-body table-responsive">
+                                    {% for x in all_drops %}
+                                        <ul><img src={{ x.Picture }} alt={{ x.Name }} height = "110" width = "110" ></img></ul><ul><h3>{{ x.Name }}</h3><h5>Type: {{ x.get_type_display }}</h5><h5>&nbsp;&nbsp;&nbsp;{{ x.get_type_special_display }}</h5>{% if not x.get_colour_display == "Standard" %}<h5>&nbsp;&nbsp;&nbsp;{{ x.get_colour_display }}</h5> {% endif %}{% if not x.get_CertType_display == "Notcert" %}<h5>&nbsp;&nbsp;&nbsp;{{ x.get_CertType_display }}</h5> {% endif %}<h5>Price: {{ x.price }} Keys</h5></ul>{% endfor %}
+                        </div>
+                </div>
+            </div>
+    </div>
+    <p class="signoff">Designed by Waypalm, Fixed by DukeKero</p>
+{% endblock %}

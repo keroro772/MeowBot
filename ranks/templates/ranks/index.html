@@ -1,0 +1,87 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'home/globalstylesheet.css' %}"/>
+
+<div class="container">
+    <div class="row">
+        <div class="catnipContent">
+            <div class="textBox">
+                <h1><u>Catnip Ranks</u></h1>
+                <p>Ranks are based on your view time, you get 1 catnip every 1 mins.</p>
+                <p>The percentage is calculated based on your position to everyone else who has catnip.</p>
+                <p>Use !myrank to find out yours and !catnip to find out your exact amount of catnip.</p>
+                <p>Use !watchtime to find out how long you have watched in days and hours.</p>
+            </div>
+            <div class="dataTable">
+                <table class= "table table-bordered table-inverse">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>rank</th>
+                                <th>%</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Cat God</td>
+                                <td>0% - 1%</td>
+
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Mythical Cat</td>
+                                <td>2% - 4%</td>
+
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Magical Cat</td>
+                                <td>5% - 15%</td>
+
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Alpha Cat</td>
+                                <td>15% - 29%</td>
+
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Beta Cat</td>
+                                <td>30% - 49%</td>
+
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Keepo Cat</td>
+                                <td>50% - 74%</td>
+
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Cute Kitten</td>
+                                <td>75% - 89%</td>
+
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Little Kitten</td>
+                                <td>90% - 100%</td>
+
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+        
+            <div class="footer">
+                <p class="signoff">Front-End Development: Waypalm<br>Back-End Development: DukeKero</p>
+            </div>
+        </div>
+    </div>      
+</div>
+{% endblock %}

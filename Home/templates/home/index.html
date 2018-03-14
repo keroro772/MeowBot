@@ -1,0 +1,43 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+    {% load staticfiles %}
+
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'home/globalstylesheet.css' %}"/>-->
+
+<!--<div class="container">-->
+    
+    <div >
+        <div class="titleContainer">
+            <p style="text-align:center;"><img src="{% static 'home/meow-home-title.png' %}" alt="header image"></p>
+        </div>
+    </div>
+    
+
+    <div class="mainContent">
+        <div class="leftVideoContainer">
+            <iframe class="twitchStream"
+                src="http://player.twitch.tv/?channel={mrmeowchow}"
+                height="620"
+                width="1024"
+                frameborder="0"
+                scrolling="no"
+                allowfullscreen="true">
+            </iframe>
+        </div>
+        <div class="rightVideoContainer">
+            <iframe class="twitchChat" frameborder="0" 
+                scrolling="no" 
+                id="chat_embed" 
+                src="http://www.twitch.tv/mrmeowchow/chat" 
+                height="620px"
+                width="256">
+            </iframe>
+        </div>
+        <div class="footer">
+            <p class="signoff">Front-End Development: Waypalm<br>Back-End Development: DukeKero</p>
+        </div>
+    </div>
+    
+<!--</div>-->
+{% endblock %}

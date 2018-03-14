@@ -1,0 +1,49 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'home/globalstylesheet.css' %}"/>
+
+<div class="container">
+    
+    <div class="row">
+        <div class="titleContainer">
+            <p style="text-align:center;"><img src="{% static 'home/MeowMilestonesTitle.png' %}" alt="header image"></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="goalsContent">
+            <div class="textBox">
+                {% for x in goals %}
+                    <t1>Name: {{ x.name }}</t1>
+                    <p>Description: {{ x.desc }}</br>
+                    Price: {{ x.price }}</br>
+                    total: {{ x.total }}</br>
+                    Date Added: {{ x.created_at }}</p>
+                    {% if user.is_authenticated %}
+                        <form class="" method="post"> 
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="hidden" name="pk" value="{{ x.pk }}"></input>
+                                <input type="number" name="value" min="1" max="{% for x in user_catnip %}{{ x.currentAmount }}{% endfor %}" autocomplete="off"></input>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </form>
+                    {% endif %}
+                    <div class="progress">   
+                        <div class="progress-bar" role="progressbar" style="width : {{ x.percent }}%" aria-valuenow="{{ x.percent }}" aria-valuemin="0" aria-valuemax="100">{{ x.percent }}%</div>
+                    </div>
+                    <p>------------------------------</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="footer">
+            <p class="signoff">Front-End Development: Waypalm<br>Back-End Development: DukeKero</p>
+        </div>
+        </div>
+    </div>      
+</div>
+{% endblock %}

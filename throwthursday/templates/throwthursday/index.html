@@ -1,0 +1,71 @@
+{% extends 'home/base.html' %}
+
+{% block body %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/globalstylesheet.css' %}"/>
+
+<div class="container">
+    
+    <div class="row">
+        <div class="titleContainer">
+            <p style="text-align:center;"><img src="{% static 'throwthursday/Cookies-list-title.png' %}" alt="header image"></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="mainContent">
+            {% if user.is_authenticated %}
+                <a  class="btn btn-primary" href="{% url 'Throwdown_List:Signup' %}" roll="button">Signup to Throwdown Thursday</a>
+                <a  class="btn btn-primary" href="{% url 'Throwdown_List:Removeme' %}" roll="button">Un-signup to Throwdown Thursday</a>
+            {% else %}
+                <a  class="btn btn-primary" href="{% url "social:begin" "twitch"%}" roll="button">Signup with twitch</a>
+            {% endif %}
+
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Throwdown Info
+            </button>
+
+            <div class="collapse" id="collapseExample">
+              <div class="card card-block">
+                  <p>Here you can sign up to a 1v1 Throwdown Thursday with Meow in Rocket League! Every Thursday Meow will battle the viewers in the list who have not already 1v1'd him in descending order.</p>
+                  <p>If a challenger is successful in defeating Meow they shall be awarded 3 points.<br>
+                If they lose, however, they shall receive only 1 point.<br>
+        And if they do not show up, they receive nothing.<br>
+        Once the month is over the challengers shall receive ranks based on how many points they managed to gain.</p>
+                  <p>A future event is being considered in which the challengers in each rank brawl eachother and the winner in each rank shall receive a prize depending on the rank they are in.</p>
+                  <p>Anyone is welcome to take part in the 1v1 Throwdown, no matter their platform of choice, whether it is PC, Playstation, or Xbox.</p>
+              </div>
+            </div>
+
+            <div class="dataTable">
+                <table class= "table table-bordered table-inverse table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Points</th>
+                            <th>Matchdone</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        {% for x in all_throw %}
+                        <tr>
+                            <td>{{ x.name }}</td>
+                            <td>{{ x.points }}</td>
+                            <td>{{ x.matchdone|yesno }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="footer">
+                <p class="signoff">Front-End Development: Waypalm<br>Back-End Development: DukeKero</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

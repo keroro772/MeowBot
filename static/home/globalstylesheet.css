@@ -1,0 +1,170 @@
+/* Global Containers below */
+body {
+    background-color: #572d4a;
+}
+
+.titleContainer {
+    width: 100%;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.mainContent {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 1280px;
+    height: 720px;
+}
+
+.iframeContainer {
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.leftVideoContainer {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+    float: left;
+}
+
+.rightVideoContainer {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.catnipContent {
+    margin: auto;
+    margin-top: 10px;
+    width: 1280px;
+    height: 700px;
+}
+
+.goalsContent {
+    margin-top: 10px;
+    width: 1280px;
+    height: 500px;
+    overflow: auto;
+}
+
+/* Developer credit footer */
+.footer {
+    margin-top: 10px;
+    text-align: center;
+    height: 48;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: #ffffff;
+}
+
+/* Global Table Styles */
+.dataTable {
+    max-height: 625px;
+    overflow: auto;
+    border: 10px solid #47253d;
+}
+
+.catnipLeaderboardTable {
+    max-height: 630px;
+    border: 10px solid #47253d;
+}
+
+/* table-bordered is a part of Bootstrap */
+.table-bordered {
+    font-size: 20px;
+}
+
+/* Global Button Styles */
+.btn {
+    font-size: 25px;
+    color: #d9d9d9;
+    margin-bottom: 10px;
+    border: 3px solid black;
+    background-color: #763d64;
+}
+
+/* Meow's Logo in Nav Bar */
+img.meowLogo {
+    margin-right: 12px;
+    margin-bottom: 5px;
+}
+
+.textBox {
+    border: 10px solid #47253d;
+    font-size: 18px;
+    color: #d9d9d9;
+    padding-left: 10px;
+    background: #292B2C;
+}
+
+.progress {
+    width: 75%;
+}
+
+.pagination {
+    color: #d9d9d9;
+}
+
+/* Custom Scrollbar Code */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #763d64;
+  border: 0px none #ffffff;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8578e;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+
+::-webkit-scrollbar-track {
+  background: #808080;
+  border: 0px none #ffffff;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.card-block {
+    font-size: 18px;
+    color: #d9d9d9;
+    background-color: #47253d;
+}
