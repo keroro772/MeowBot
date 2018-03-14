@@ -1,0 +1,14 @@
+env_file.env
+db.sqlite3
+__pycache__
+.vscode
+.pydevproject
+.pyproject
+.ash_historydocker-compose-dev.yml
+\.ash_history
+
+\.project
+
+docker-compose-dev\.yml
+
+dump\.json
